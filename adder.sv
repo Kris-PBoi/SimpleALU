@@ -2,7 +2,8 @@ module adder #(parameter N = 4) (
     input  logic [N-1:0] a_i,  // First input vector
     input  logic [N-1:0] b_i,  // Second input vector
     output logic [N-1:0] sum,  // Sum output
-    output logic         carry // Final carry output
+    output logic         carry, // Final carry output
+    output logic [N:0] tot 
 );
 /* verilator lint_off UNOPTFLAT */
     logic [N:0] carry_int; // Internal carry chain (N+1 bits)
@@ -20,5 +21,6 @@ module adder #(parameter N = 4) (
     endgenerate
 
     assign carry = carry_int[N];
+    assign tot = {carry, sum};
 
 endmodule

@@ -22,6 +22,7 @@ class alignas(VL_CACHE_LINE_BYTES) VadderTb___024root final : public VerilatedMo
     CData/*0:0*/ __VstlFirstIteration;
     CData/*0:0*/ __VactDidInit;
     CData/*0:0*/ __VactContinue;
+    SData/*8:0*/ adderTb__DOT__tot;
     SData/*8:0*/ adderTb__DOT__uut__DOT__carry_int;
     SData/*8:0*/ __Vtrigprevexpr___TOP__adderTb__DOT__uut__DOT__carry_int__0;
     SData/*8:0*/ __Vtrigprevexpr___TOP__adderTb__DOT__uut__DOT__carry_int__1;

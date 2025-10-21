@@ -5,6 +5,7 @@
 #include "VadderTb__pch.h"
 #include "VadderTb___024root.h"
 
+VL_ATTR_COLD void VadderTb___024root___eval_initial__TOP(VadderTb___024root* vlSelf);
 VlCoroutine VadderTb___024root___eval_initial__TOP__Vtiming__0(VadderTb___024root* vlSelf);
 
 void VadderTb___024root___eval_initial(VadderTb___024root* vlSelf) {
@@ -13,6 +14,7 @@ void VadderTb___024root___eval_initial(VadderTb___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    VadderTb___024root___eval_initial\n"); );
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
+    VadderTb___024root___eval_initial__TOP(vlSelf);
     VadderTb___024root___eval_initial__TOP__Vtiming__0(vlSelf);
     vlSelfRef.__Vtrigprevexpr___TOP__adderTb__DOT__uut__DOT__carry_int__0 
         = vlSelfRef.adderTb__DOT__uut__DOT__carry_int;
@@ -28,15 +30,16 @@ VL_INLINE_OPT VlCoroutine VadderTb___024root___eval_initial__TOP__Vtiming__0(Vad
     // Body
     vlSelfRef.adderTb__DOT__a_i = 0x95U;
     vlSelfRef.adderTb__DOT__b_i = 0xd2U;
-    co_await vlSelfRef.__VdlySched.delay(1ULL, nullptr, 
+    co_await vlSelfRef.__VdlySched.delay(0xaULL, nullptr, 
                                          "adderTb.sv", 
-                                         14);
-    VL_WRITEF_NX("a = %8b\nb = %8b\nsum = %8b\ncarry = %1b\n",0,
+                                         20);
+    VL_WRITEF_NX("a = %8b\nb = %8b\nsum = %8b\ncarry = %1b\ntotal = %1b\n",0,
                  8,vlSelfRef.adderTb__DOT__a_i,8,(IData)(vlSelfRef.adderTb__DOT__b_i),
                  8,vlSelfRef.adderTb__DOT__sum,1,(1U 
                                                   & ((IData)(vlSelfRef.adderTb__DOT__uut__DOT__carry_int) 
-                                                     >> 8U)));
-    VL_FINISH_MT("adderTb.sv", 21, "");
+                                                     >> 8U)),
+                 9,(IData)(vlSelfRef.adderTb__DOT__tot));
+    VL_FINISH_MT("adderTb.sv", 28, "");
 }
 
 void VadderTb___024root___act_comb__TOP__0(VadderTb___024root* vlSelf);
@@ -83,6 +86,10 @@ VL_INLINE_OPT void VadderTb___024root___act_comb__TOP__0(VadderTb___024root* vlS
     vlSelfRef.adderTb__DOT__sum = (0xffU & ((IData)(vlSelfRef.adderTb__DOT__a_i) 
                                             ^ ((IData)(vlSelfRef.adderTb__DOT__b_i) 
                                                ^ (IData)(vlSelfRef.adderTb__DOT__uut__DOT__carry_int))));
+    vlSelfRef.adderTb__DOT__tot = ((0x100U & (IData)(vlSelfRef.adderTb__DOT__uut__DOT__carry_int)) 
+                                   | (0xffU & ((IData)(vlSelfRef.adderTb__DOT__a_i) 
+                                               ^ ((IData)(vlSelfRef.adderTb__DOT__b_i) 
+                                                  ^ (IData)(vlSelfRef.adderTb__DOT__uut__DOT__carry_int)))));
 }
 
 void VadderTb___024root___nba_sequent__TOP__0(VadderTb___024root* vlSelf);
@@ -107,6 +114,10 @@ VL_INLINE_OPT void VadderTb___024root___nba_sequent__TOP__0(VadderTb___024root* 
     vlSelfRef.adderTb__DOT__sum = (0xffU & ((IData)(vlSelfRef.adderTb__DOT__a_i) 
                                             ^ ((IData)(vlSelfRef.adderTb__DOT__b_i) 
                                                ^ (IData)(vlSelfRef.adderTb__DOT__uut__DOT__carry_int))));
+    vlSelfRef.adderTb__DOT__tot = ((0x100U & (IData)(vlSelfRef.adderTb__DOT__uut__DOT__carry_int)) 
+                                   | (0xffU & ((IData)(vlSelfRef.adderTb__DOT__a_i) 
+                                               ^ ((IData)(vlSelfRef.adderTb__DOT__b_i) 
+                                                  ^ (IData)(vlSelfRef.adderTb__DOT__uut__DOT__carry_int)))));
 }
 
 void VadderTb___024root___timing_resume(VadderTb___024root* vlSelf) {

@@ -149,6 +149,7 @@ VL_ATTR_COLD void VadderTb___024root___ctor_var_reset(VadderTb___024root* vlSelf
     vlSelf->adderTb__DOT__a_i = VL_RAND_RESET_I(8);
     vlSelf->adderTb__DOT__b_i = VL_RAND_RESET_I(8);
     vlSelf->adderTb__DOT__sum = VL_RAND_RESET_I(8);
+    vlSelf->adderTb__DOT__tot = VL_RAND_RESET_I(9);
     vlSelf->adderTb__DOT__uut__DOT__carry_int = VL_RAND_RESET_I(9);
     vlSelf->__Vtrigprevexpr___TOP__adderTb__DOT__uut__DOT__carry_int__0 = VL_RAND_RESET_I(9);
     vlSelf->__VstlDidInit = 0;
